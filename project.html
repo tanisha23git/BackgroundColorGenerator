@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e7eff5;
+        }
+        .container{
+            text-align: center;
+        }
+        .container h2{
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+        .color{
+            color: rgb(12,83,107);
+            font-size: 20px;
+        }
+        .btn{
+            background-color: transparent;
+            padding: 10px;
+            border: 2px solid #222;
+            outline: none;
+            cursor: pointer;
+            margin-left: 20px;
+            border-radius: 5px;
+            
+            
+        }
+        .btn:hover{
+            background-color: #222;
+            color: #fff;
+            transition: all 0.3s ease-in-out;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Background color generator</h2>
+        <span class="color">#e7eff5</span>
+    </div>
+    <button id="btn" class="btn">change color</button>
+
+
+    <script>
+  const button = document.getElementById('btn');
+  const colorText = document.querySelector('.color');
+
+  const hex = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','a'];
+
+  // add event listner on button
+  button.addEventListener('click',() =>{
+    const hexCol = generateHexCol();
+    document.body.style.backgroundColor = hexCol
+    colorText.textContent = hexCol
+  })
+
+
+  //function to generate hex color
+  const generateHexCol = () =>{
+    let hexcolor ="#";
+    for(let i=0; i<6; i++){
+        hexcolor += hex[generateRandomNum()];
+    }
+    //alert(hexcolor)
+    return hexcolor;
+  }
+  
+  function generateRandomNum(){
+     return Math.floor(Math.random() * hex.length)
+  }
+  
+
+    </script>
+</body>
+</html>
